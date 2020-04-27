@@ -13,5 +13,5 @@
 	<body>
 		<div class="container-fluid">
 		<header>
-			<a href="index.php"><img src="../img/logo.png" alt="logo" height="40px"></a>
+			<a href="/index.php"><img src="/img/logo.png" alt="logo" height="40px"></a>
 		</header>
