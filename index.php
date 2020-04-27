@@ -23,7 +23,7 @@ session_start();
 
 
    <script>
-  $( function() {
+  $(function() {
     var availableTags = [
       "Paris",
       "Madrid",
@@ -46,7 +46,7 @@ session_start();
       "Python",
       "Ruby",
       "Scala",
-      "Scheme"
+      "Scheme",
     ];
     $( "#tags" ).autocomplete({
       source: availableTags

@@ -1,9 +1,3 @@
-<?php 
-session_start();
-	include 'config.php';
-?>
-
-
 <?php session_start(); ?>
 <!DOCTYPE html>
 <html>
@@ -31,7 +25,7 @@ session_start();
    		</ul>
 
    		<div>
-   			<img src="../img/Logo.png" id="img1" class="deuxieme_position">
+   			<img src="../img/logo.png" id="img1" class="deuxieme_position">
    			<img src="../SVG/svg1.svg" width="800px" height="700px" id="img2"class="troisieme_position">   <!-- Images à changer -->
    			<img src="../SVG/svg2.svg" width="800px" height="700px" id="img3" class="premiere_position">    <!-- Images à changer -->
    		</div>
