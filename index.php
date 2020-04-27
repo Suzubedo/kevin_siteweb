@@ -23,35 +23,36 @@ session_start();
 
 
    <script>
-  $(function() {
-    var availableTags = [
-      "Paris",
-      "Madrid",
-      "Barcelone",
-      "Marseille",
-      "Varsovie",
-      "Berlin",
-      "Clojure",
-      "COBOL",
-      "ColdFusion",
-      "Erlang",
-      "Fortran",
-      "Groovy",
-      "Haskell",
-      "Java",
-      "JavaScript",
-      "Lisp",
-      "Perl",
-      "PHP",
-      "Python",
-      "Ruby",
-      "Scala",
-      "Scheme",
-    ];
-    $( "#tags" ).autocomplete({
-      source: availableTags
-    });
-  } );
+// $(function() {
+//    var availableTags = [
+//      "Paris",
+//      "Madrid",
+//      "Barcelone",
+//      "Marseille",
+//      "Varsovie",
+//      "Berlin",
+//      "Clojure",
+//      "COBOL",
+//      "ColdFusion",
+//      "Erlang",
+//      "Fortran",
+//      "Groovy",
+//      "Haskell",
+//      "Java",
+//      "JavaScript",
+//      "Lisp",
+//      "Perl",
+//      "PHP",
+//      "Python",
+//      "Ruby",
+//      "Scala",
+//      "Scheme",
+//    ];
+//    $("#tags").autocomplete({
+//    source: availableTags, 
+//
+//    });
+//  } );
   </script>
 
 
@@ -104,10 +105,36 @@ session_start();
 				<input class="recherche_p" name="q" type="text" placeholder="Rechercher une ville" id="tags">
 				<button type="submit" class="recherche_p" value="Rechercher"><img src="SVG/loupe.svg" width="40px" height="40px"></button>
 			</form>
+			<script>
+
+			<?php
+				$villes = 'Berlin';
+				$req_get_ville = $bdd->prepare('SELECT city FROM service;');
+				$req_get_ville->execute();
+				$result = $req_get_ville->fetchAll();
+			?>
+				var liste2 = <?php echo json_encode($result); ?>;
+				var liste = [];
+				
+				liste2.forEach(function(city) {
+				if(liste.indexOf(city.city) == -1) {
+					liste.push(city.city);
+}
+				})
+			//	for (int i = 0; i < liste2.length; i++)
+			//	{
+			//		liste.push(liste2[i].city);
+			//	}
+
+				$('#tags').autocomplete({
+					source : liste,
+					minLength : 1
+				});
+
+			</script>
 	</main>
 
 		<?php 
-			
 		 	if (isset($_GET['q'])) {
 		 		$q = htmlspecialchars($_GET['q']);
 				$req = $bdd->prepare('SELECT * FROM service WHERE city =?');
