@@ -107,6 +107,9 @@ session_start();
 	</main>
 
 		<?php 
+			$user = "root";
+			$pass = "pr0jetEsgi2020";
+			$bdd = new PDO('mysql:host=localhost;dbname=siteannuel', $user, $pass);
 		 	if (isset($_GET['q'])) {
 		 		$q = htmlspecialchars($_GET['q']);
 				$req = $bdd->prepare('SELECT * FROM service WHERE city =?');
