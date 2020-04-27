@@ -1,0 +1,6 @@
+### kdsklcd
+AuthName "dossier admin"
+AuthType Basic
+AuthUserFile "/var/www/html/brrrrrr/admin/.htpasswd"
+Require valid-user
+##### saut

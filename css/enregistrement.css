@@ -1,0 +1,31 @@
+body {
+	overflow: hidden;
+	background: black;
+}
+
+.boite {
+	width: 100%;
+	height: 90vh;
+	display: flex;
+	justify-content: center;
+}
+
+
+.boite button {
+	width: 50%;
+	height: 100%;
+	border: none;
+	transition: background 0.2s;
+}
+
+
+.boite button:nth-child(1) { background: rgba(0,123,255, 0.7);  }
+.boite button:nth-child(2) { background: rgba(40,167,69, 0.7); }
+.boite button:nth-child(1):hover { background: rgba(0,123,255, 1);  }
+.boite button:nth-child(2):hover { background: rgba(40,167,69, 1); }
+
+
+.boite button h2 {
+	color: white;
+
+}

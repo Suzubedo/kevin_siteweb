@@ -1,0 +1,146 @@
+* {
+	padding: 0;
+	margin: 0;
+}
+
+body {
+	width: 100%;
+	height: 100vh;
+	background-repeat: no-repeat;
+	background-image: url("../SVG/BGconnect.svg");
+	background-size: cover;
+	background-position: 0% 50%;
+	overflow: hidden;
+	font-family: tahoma;
+
+	display: flex;
+	flex-flow: row nowrap;
+	justify-content: center;
+	/*align-items: center; */
+}
+
+#retour {
+	padding: 10px;
+	position: absolute;
+	top: 0;
+	left: 0;
+	color: white;
+}
+
+.left_side, .right_side {
+	width: 50%;
+	height: 100%;
+}
+
+.left_side {
+	display: flex;
+	flex-flow: row nowrap;
+	justify-content: flex-start;
+	align-items: center;
+}
+
+
+.left_side ul {
+	margin-left: 25px;
+}
+
+.left_side ul li {
+	width: 15px;
+	height: 15px;
+	margin: 20px 0px;
+	list-style-type: none;
+	border-radius: 50px;
+	background-color: black;
+	cursor: pointer;
+	box-sizing: border-box;
+}
+
+.img_active {
+	border: 4px solid green;
+}
+
+.left_side div {
+	width: 90%;
+	height: 75%;
+	position: relative;
+	overflow: hidden;
+}
+
+.left_side div img {
+	position: absolute;
+	top: 0%;
+	transition: 0.3s;
+}
+
+.premiere_position {
+	opacity: 1;
+	top: 0%;
+	left: 0%;
+}
+
+.deuxieme_position {
+	opacity: 0;
+	left: 100%;
+}
+
+.troisieme_position {
+	opacity: 0;
+	left: -100%;
+}
+
+
+
+.right_side {
+	display: flex;
+	flex-flow: column nowrap;
+	justify-content: center;
+	align-items: center;
+}
+
+.right_side h1 {
+	font-size: 2.5em;
+}
+
+.right_side h2 {
+	margin-bottom: 15px;
+	font-size: 2.5em;
+	font-weight: lighter;
+}
+
+.right_side form {
+	display: flex;
+	flex-flow: column nowrap;
+	justify-content: center;
+	align-items: center;
+}
+
+.right_side form input {
+	margin: 10px 0;
+	padding: 10px;
+	font-size: 1.5em;
+	border: 2px solid lightgrey;
+	border-radius: 50px;
+	background: white;
+	outline: none;
+}
+
+#bouton {
+	margin: 18px 0;
+	padding: 8px;
+	font-size: 2em;
+	background: ;
+	border: none;
+	border-radius: 50px;
+	transition: 0.3s;
+	cursor: pointer;
+	border: 2px solid rgb(0,146,69);
+}
+
+#bouton:hover {
+	box-sizing: border-box;
+	transform: scale(1.05);
+	border: 2px solid white;
+	background-color: rgb(0,146,69);
+	color: white;
+}
+
