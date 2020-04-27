@@ -20,9 +20,15 @@ session_start();
   <script src="https://kit.fontawesome.com/5691792ff1.js" crossorigin="anonymous"></script>
   <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script src="konami.js"></script>
 
 
 
+<script>
+var easter_egg = new Konami(function() { 
+	window.location.href = "https://traveln.site/pacman.php";
+});
+</script>
    <script>
 // $(function() {
 //    var availableTags = [
@@ -147,7 +153,14 @@ session_start();
 				  </script>
 <?php
 				}
-				else
+				else if (strtolower($q) == "wuhan")
+				{
+					window.location.href = "https://traveln.site/pacman.php";
+?>
+					
+<?php
+				}
+
 				{
 					$req = $bdd->prepare('SELECT * FROM service WHERE city =?');
 					$req->execute(array($q));
@@ -204,5 +217,6 @@ session_start();
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 	<script type="text/javascript" src="../js/main.js"></script>
 	</body>
+
 </html
 
