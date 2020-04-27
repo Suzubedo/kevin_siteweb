@@ -13,7 +13,7 @@
 <body>
 
     <header class="tete">
-		<a href="../index.php"><img src="../img/Logo.png" width="110px" height="100px"></a>
+		<a href="../index.php"><img src="../img/logo.png" width="110px" height="100px"></a>
 
 		<nav>
 			<ul>
