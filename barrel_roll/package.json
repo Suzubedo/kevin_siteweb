@@ -1,0 +1,10 @@
+{
+  "name": "doABarrelRoll",
+
+  "description": "This rotates the page 360deg, just like Google's Barrel Roll easter egg.",
+
+  "keywords": [
+    "animation",
+    "css3"
+  ]
+}

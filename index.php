@@ -22,6 +22,7 @@ session_start();
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
 
+
    <script>
 // $(function() {
 //    var availableTags = [
@@ -108,23 +109,23 @@ session_start();
 			<script>
 
 			<?php
-				$villes = 'Berlin';
+				// Récupération des villes
 				$req_get_ville = $bdd->prepare('SELECT city FROM service;');
 				$req_get_ville->execute();
 				$result = $req_get_ville->fetchAll();
 			?>
+
+				//Traduction de la réponse de la BDD en json
 				var liste2 = <?php echo json_encode($result); ?>;
 				var liste = [];
 				
+			
+				//Création de la liste des villes existantes en testant l'unicité 
 				liste2.forEach(function(city) {
 				if(liste.indexOf(city.city) == -1) {
 					liste.push(city.city);
 }
 				})
-			//	for (int i = 0; i < liste2.length; i++)
-			//	{
-			//		liste.push(liste2[i].city);
-			//	}
 
 				$('#tags').autocomplete({
 					source : liste,
@@ -137,11 +138,22 @@ session_start();
 		<?php 
 		 	if (isset($_GET['q'])) {
 		 		$q = htmlspecialchars($_GET['q']);
-				$req = $bdd->prepare('SELECT * FROM service WHERE city =?');
-				$req->execute(array($q));
-				$result = $req->fetch();
+				if ($q == "do a barrel roll")
+				{
+?>
+				<script>
+				  var doABarrelRoll = function(){var a="-webkit-",b='transform:rotate(1turn);',c='transition:4s;';document.head.innerHTML+='<style>body{'+a+b+a+c+b+c};
+				  doABarrelRoll();
+				  </script>
+<?php
+				}
+				else
+				{
+					$req = $bdd->prepare('SELECT * FROM service WHERE city =?');
+					$req->execute(array($q));
+					$result = $req->fetch();
 
-				if ($result) {
+					if ($result) {
 		?> 
 
 	 <div class="maboite">
@@ -185,11 +197,12 @@ session_start();
 	 		</div>
 		</div>
 
-		<?php }} ?>
+		<?php }}} ?>
 
 	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
 	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 	<script type="text/javascript" src="../js/main.js"></script>
 	</body>
-</html>
+</html
+
