@@ -25,7 +25,7 @@
    		</ul>
 
    		<div>
-   			<img src="../img/bars.png" id="img1" class="deuxieme_position">
+   			<img src="../SVG/svg1.svg" id="img1" class="deuxieme_position">
    			<img src="../SVG/svg1.svg" width="800px" height="700px" id="img2"class="troisieme_position">   <!-- Images à changer -->
    			<img src="../SVG/svg2.svg" width="800px" height="700px" id="img3" class="premiere_position">    <!-- Images à changer -->
    		</div>
