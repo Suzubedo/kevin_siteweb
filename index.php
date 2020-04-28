@@ -156,7 +156,9 @@ var easter_egg = new Konami(function() {
 				else if (strtolower($q) == "wuhan")
 				{
 ?>
+				<script>
 					window.location.href = "https://traveln.site/pacman.php";
+				</script>
 					
 <?php
 				}
