@@ -12,7 +12,7 @@
 		$mailVerif = 1;
 		$q = $bdd->prepare('UPDATE users SET mailVerif = ? WHERE email = ?');
 		$q->execute(array($mailVerif, $mail));
-		echo 'Votre email a été vérifié veillez vous '.'<a href="../pages/connexion.php">'.'connecter'.'</a>'.''
+		echo 'Votre email a été vérifié veillez vous '.'<a href="../pages/connexion.php">'.'connecter'.'</a>'.'';
 	} else{
 		echo "l'email envoyé n'a pas été verifié veillez vous réinscrire";
 	}

@@ -45,7 +45,7 @@
                                                 $verifUser = $bdd->prepare('SELECT * FROM users WHERE email = ?');
                                                 $verifUser->execute(array($email));
                                                 $confirm = $verifUser->rowCount();
-                                                    
+
                                                 if ($confirm == 1 ) {
                                                     $to = $email;
                                                     $subject = "Confirmation d'inscription";
@@ -54,14 +54,15 @@
                                                     Pour activer votre compte, veuillez cliquer sur le lien ci-dessous
                                                     ou copier/coller dans votre navigateur Internet.
                                                      
-                                                    http://51.178.55.28/pages_php/activation.php?mail=".$email."&cle=".urlencode($mailKey)."
+                                                    http://traveln.site/pages_php/activation.php?mail=".$email."&cle=".urlencode($mailKey)."
                                                     ---------------
                                                     Ceci est un mail automatique, Merci de ne pas y répondre.";//remplacer localhost par le chemin de mon site 
-                                                    $headers = "From: shelton@yompmail" . "\r\n" .
+                                                    $headers = "From: travelnconfirmation@gmail.com" . "\r\n" .
                                                     "CC: ".$email;
                                                     mail($to,$subject,$txt,$headers);
 
-                                                    header('Location: ../pages/connexion.php');
+                                                    header('Location: ../pages/merci.php');
+                                                    /*pages_php/activation.php?mail=<?php echo $email; ?>&cle=<?php echo urlencode($mailKey); ?>*/
                                                 }
                                             } else {
                                                 $error = "cet email est deja utilisé";

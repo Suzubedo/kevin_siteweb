@@ -1,4 +1,5 @@
 <?php session_start(); ?>
+<?php include '../config.php'; ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,38 +8,10 @@
 	<link rel="stylesheet" type="text/css" href="../css/bootstrap.css">
 	<link rel="stylesheet" type="text/css" href="../css/bootstrap-grid.css">
 	<link rel="stylesheet" type="text/css" href="../css/bootstrap-reboot.css">
-	<link rel="stylesheet" type="text/css" href="../css/enregistrement.css">
-	<link rel="stylesheet" type="text/css" href="../css/header.css">
 </head>
 <body>
 
-    <header class="tete">
-		<a href="../index.php"><img src="../img/logo.png" width="110px" height="100px"></a>
-
-		<nav>
-			<ul>
-				<?php  
-					//include 'config.php';
-					//verifie si la session existe 
-					if (isset($_SESSION['email'])) {
-						/*$req = $bdd->prepare('SELECT * FROM users WHERE id = ?');
-						$req->execute(array($_SESSION['id']));
-						$session = $req->fetch();*/
-					?>
-					<li><a href="../pages_php/logOut.php">Deconnexion</a></li>
-					<li><a href="#"><?php echo $_SESSION['firstName']; ?></a></li>
-				<?php } else { ?>
-					<li><a href="connexion.php">Connexion</a></li>
-					<li><a href="register.php">Inscription</a></li>
-
-				<?php } ?>
-					<li><a href="cgu.php">CGU</a></li>
-			</ul>
-		</nav>
-
-		<div class="bg-2"></div>
-		<div class="bg-1"></div>
-	</header>
+    <a href="../index.php"><img src="../SVG/maison.svg" alt="logo" height="40px"></a>
 
 	<div class="container-fluid">
 		<div class="row register">
@@ -53,12 +26,16 @@
 			?>
 	    </div>
 
-		<div class="boite">
+		<div class="col-md-8">
 
 			<!-- Button trigger modal -->
-			<button type="button" class="" data-toggle="modal" data-target="#registerClient"><h2>Inscription client</h2></button>
+			<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#registerClient">
+			  Inscription client
+			</button>
 
-			<button type="button" class="" data-toggle="modal" data-target="#registerEntreprise"><h2>Inscription entreprise</h2></button>
+			<button type="button" class="btn btn-success" data-toggle="modal" data-target="#registerEntreprise">
+			  Inscription entreprise
+			</button>
 
 			<!-- Modal client -->
 			<?php include 'registerClient.php'; ?>

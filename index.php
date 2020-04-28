@@ -6,7 +6,7 @@ session_start();
 <!DOCTYPE html>
 <html>
 <head>
-	<title>nom du site</title>
+	<title>Traveln</title>
 	<meta charset="utf-8">
 	   <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -80,8 +80,6 @@ var easter_egg = new Konami(function() {
 						$req->execute(array($_SESSION['id']));
 						$session = $req->fetch();*/
 					?>
-					<li><a href="test.php"><?php echo $_SESSION['firstName']; ?></a></li>
-					<li><a href="pages_php/logOut.php">Deconnexion</a></li>
 					<li>
 						<div class="btn-group">
 						 
@@ -94,6 +92,8 @@ var easter_egg = new Konami(function() {
 						  </div>
 						</div>
 					</li>
+					<li><a href="test.php"><?php echo $_SESSION['firstName']; ?></a></li>
+					<li><a href="pages_php/logOut.php">Deconnexion</a></li>
 				<?php } else { ?>
 					<li><a href="pages/connexion.php">Connexion</a></li>
 					<li><a href="pages/register.php">Inscription</a></li>

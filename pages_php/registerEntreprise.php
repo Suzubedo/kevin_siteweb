@@ -41,7 +41,29 @@
 
                                                 $insertUser = $bdd->prepare('INSERT INTO users(role, businessName, siretNumber, email, address, postCode, city, country, phoneNumber, password, activity, lastName, firstName, mailKey, mailVerif) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)');
                                                 $insertUser->execute(array($role, $businessName, $siretNumber, $email, $address, $postCode, $city, $country, $phoneNumber, $password, $activity, $lastName, $firstName, $mailKey, $mailVerif));
-                                                header('Location: ../pages/connexion.php');
+                                                
+                                                $verifUser = $bdd->prepare('SELECT * FROM users WHERE email = ?');
+                                                $verifUser->execute(array($email));
+                                                $confirm = $verifUser->rowCount();
+
+                                                if ($confirm == 1 ) {
+                                                    $to = $email;
+                                                    $subject = "Confirmation d'inscription";
+                                                    $txt = "Bienvenue,
+ 
+                                                    Pour activer votre compte, veuillez cliquer sur le lien ci-dessous
+                                                    ou copier/coller dans votre navigateur Internet.
+                                                     
+                                                    http://traveln.site/pages_php/activation.php?mail=".$email."&cle=".urlencode($mailKey)."
+                                                    ---------------
+                                                    Ceci est un mail automatique, Merci de ne pas y répondre.";//remplacer localhost par le chemin de mon site 
+                                                    $headers = "From: shelton@yompmail" . "\r\n" .
+                                                    "CC: ".$email;
+                                                    mail($to,$subject,$txt,$headers);
+
+                                                    header('Location: ../pages/merci.php');
+                                                    /*pages_php/activation.php?mail=<?php echo $email; ?>&cle=<?php echo urlencode($mailKey); ?>*/
+                                                }
 
                                             } else {
                                                 $error = "cet email est deja utilisé";

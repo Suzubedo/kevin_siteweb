@@ -22,7 +22,23 @@
 		<em>Description : </em><?php echo $resultat['description']; ?><br>
 		<em>Prix : </em><?php echo $resultat['price']; ?><br>
 	</p>
-	<button type="button" class="btn btn-outline-info" data-toggle="modal" data-target="<?php echo '#id'.$resultat['id']?>">Reserver</button>
+	
+	<?php 
+			if (isset($_SESSION['id'])) {
+				if ($_SESSION['mailVerif'] == 1) {
+		 ?>
+
+		<button type="button" class="btn btn-outline-info" data-toggle="modal" data-target="<?php echo '#id'.$resultat['id']?>">Reserver</button>
+
+		<?php } else{ ?>
+
+			<p>Votre email n'est pas vérifé, merci d'activer votre compte dans vos mails</p>
+			
+		<?php }}else{ ?>
+
+		<p>Pour effectuer cette réservation veuillez vous <a href="register.php">inscrire</a> et/ou vous <a href="connexion.php">connecter</a></p>
+
+		<?php } ?>
 
 		<!-- Modal -->
 		<div class="modal fade" id="<?php echo 'id'.$resultat['id']?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -35,7 +51,7 @@
 		        </button>
 		      </div>
 		      <div class="modal-body">
-		        <form>
+		        <form method="POST" action="../pages_php/bar.php?city=<?php echo $city;?>">
 		        	<div class="form-row">
 			         <div class="col-md-6 mb-3">
 			            <input type="hidden" class="form-control" id="validationDefault01" name="id_user" value=<?php echo $_SESSION['id'];?> required>
@@ -48,20 +64,15 @@
 			        <div class="form-row">
 			         <div class="col-md-6 mb-3">
 			            <label for="validationDefault01">Nombre de personne</label>
-			            <input type="text" class="form-control" id="validationDefault01" name="number_of_person" required>
+			            <input type="number" class="form-control" id="validationDefault01" name="number_of_person" required>
 			         </div>
 			         <div class="col-md-6 mb-3">
 			            <label for="validationDefault01">Date</label>
 			            <input type="date" class="form-control" id="validationDefault01" name="date_arrival" required>
 			         </div>
 			        </div>
-			        <div class="form-row">
-			         <div class="col-md-12 mb-3">
-			            <label for="validationDefault01">prix</label>
-			            <input type="text" class="form-control" id="validationDefault01" name="price" required>
-			         </div>
 		        	<button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
-		        	<button type="submit" class="btn btn-primary">Reserver</button>
+		        	<button type="submit" class="btn btn-primary" name="sendForm">Reserver</button>
 		        </form>
 		      </div>
 		    </div>
